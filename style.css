@@ -46,29 +46,39 @@ body {
   min-height: 300px;
   border-radius: 10px;
   z-index: 1;
+  transition-duration: 300ms;
+  cursor: pointer;
 }
 .card .first-img::before {
   content: "";
   position: absolute;
-  display: none;
   width: 100%;
   height: 100%;
   border-radius: 10px;
   background-color: var(--main-clr-two);
+  transition: 300ms linear;
+  transform: scale(0);
+  transform-origin: left center;
   opacity: 0.5;
 }
-.card .first-img:hover::before,
-.card .first-img:hover .eye{
-  display: block;
-  cursor: pointer;
+.card .first-img:hover::before {
+  transform: scale(1);
 }
 .card .first-img .eye {
-  display: none;
+  opacity: 0;
   z-index: 1;
+  transition: 300ms;
+}
+.card .first-img:hover .eye{
+  display: block;
+  cursor: pointer;  
+  opacity: 1;
 }
 .title {
   font-size: 24px;
   margin: 1rem 0;
+  padding-top: .5rem;
+  transition-duration: 250ms;
 }
 .title:hover {
   cursor: pointer;
@@ -97,6 +107,7 @@ body {
 .crypto .currency {
   color: var(--main-clr-two);
   font-size: var(--main-font);
+  font-weight: 300;
 }
 .days {
   display: flex;
@@ -123,10 +134,12 @@ footer img {
 .footer-txt {
   color: var(--main-clr);
 }
-.footer-txt span {
+.footer-txt a {
   color: var(--white-clr);
+  transition-duration: 300ms;
+  text-decoration: none;
 }
-.footer-txt span:hover {
+.footer-txt a:hover {
   cursor: pointer;
   color: var(--main-clr-two);
 }
